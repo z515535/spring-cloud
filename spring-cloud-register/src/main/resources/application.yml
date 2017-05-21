@@ -1,0 +1,11 @@
+#eureka 注册中心配置
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false #是否将自己尝试往注册中心注册服务
+    fetchRegistry: false  #是否在注册中心中拉取服务
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  #其实就是 http://localhost:8080/eureka/
