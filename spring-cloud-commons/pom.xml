@@ -11,4 +11,7 @@
 	<name>spring-cloud</name>
 	<description>公共依赖工程</description>
 
+	<build>
+		<finalName>spring-cloud-commons</finalName>
+	</build>
 </project>

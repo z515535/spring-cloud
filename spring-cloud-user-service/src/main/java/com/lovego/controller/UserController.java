@@ -2,9 +2,9 @@ package com.lovego.controller;
 
 
 import com.lovego.entity.User;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 
 @RestController
@@ -21,5 +21,22 @@ public class UserController {
 
         System.out.println(" rest 接口远程调用结束 ");
         return user;
+    }
+
+    @RequestMapping("/getUserInfo")
+    public User getUser(@RequestBody User user){
+        System.out.println(user);
+        return new User(user.getId());
+    }
+
+    @RequestMapping("/map")
+    public Map<String,String> map(@RequestParam Map<String,String> map){
+        System.out.println(map);
+        return map;
+    }
+
+    @RequestMapping("/base")
+    public User base(int id){
+        return new User(id);
     }
 }

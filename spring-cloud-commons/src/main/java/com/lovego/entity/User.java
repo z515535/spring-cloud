@@ -1,11 +1,9 @@
 package com.lovego.entity;
 
-import java.io.Serializable;
-
 /**
  * Created by admin on 2017/5/18.
  */
-public class User implements Serializable{
+public class User{
     private Integer id;
     private String name;
     private String sex;
