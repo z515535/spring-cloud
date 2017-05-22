@@ -1,7 +1,7 @@
 package com.lovego.facade;
 
 import com.lovego.entity.User;
-import com.lovego.fallback.UserFallBack;
+import com.lovego.facade.fallback.UserFallBack;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
