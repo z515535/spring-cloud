@@ -1,13 +1,14 @@
 package com.lovego.facade;
 
 import com.lovego.entity.User;
+import com.lovego.fallback.UserFallBack;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 
-@FeignClient(name = "user-server")
+@FeignClient(name = "user-server", fallback = UserFallBack.class)
 public interface UserFacade {
 
     @RequestMapping(method = RequestMethod.GET,path = "/getUser/{userId}")
@@ -19,7 +20,7 @@ public interface UserFacade {
      * @param user
      * @return
      */
-    @RequestMapping(method = RequestMethod.POST, path = "/getUserInfo")
+    @RequestMapping(method = RequestMethod.POST, path = "/getUserInfos")
     User getUserInfo(@RequestBody User user);
 
     /**
@@ -37,4 +38,7 @@ public interface UserFacade {
      */
     @RequestMapping(path = "/base")
     User base(@RequestParam("id") int id);
+
 }
+
+
