@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: turbine
+server:
+  port: 8084
+# 集群监控配置
+turbine:
+  appConfig: web-boss
+  #aggregator:
+    #clusterConfig: default
+  clusterNameExpression: new String("default")
+# 1. clusterNameExpression指定集群名称， 默认表达式appName； 此时：turbine.aggregator.clusterConfig需要配置想要监控的应⽤名称
+# 2. 当clusterNameExpression: default时， turbine.aggregator.clusterConfig可以不写， 因为默认就是default
+# 3. 当clusterNameExpression: metadata['cluster']时， 假设想要监控的应⽤配置了eureka.instance.metadata-map.cluster: ABC， 则需要配置， 同时turbine.aggregator.clusterConfig: ABC
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/

@@ -10,9 +10,9 @@ eureka:
   instance:
     hostname: localhost
     instance-id: http://localhost:${server.port}
-server:
-  port: 8085
 # feign 远程调用失败处理开启  fallback 功能
+server:
+  port: 8086
 feign:
   hystrix:
     enabled: true
